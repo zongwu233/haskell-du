@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE NamedFieldPuns #-}
 
-module App where
+module App(module AppTypes,MyApp,runMyApp) where
 
 import AppTypes
 import AppRWST

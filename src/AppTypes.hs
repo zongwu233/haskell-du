@@ -4,7 +4,8 @@
 
 module AppTypes
   ( AppConfig(..),
-  AppEnv(..)
+  AppEnv(..),
+  initialEnv
   )
 where
 

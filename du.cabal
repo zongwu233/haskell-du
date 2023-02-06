@@ -56,7 +56,11 @@ executable du
     -- other-extensions:
     build-depends:
         base ^>=4.15.1.0,
-        du
+        du,
+        text,
+        text-show,
+        optparse-applicative,
+
 
 
     hs-source-dirs:   app
