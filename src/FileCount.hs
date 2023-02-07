@@ -1,6 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE NamedFieldPuns #-}
 
 module FileCount where 
 
@@ -18,8 +16,8 @@ fileCount = do
      AppEnv {..} <- ask
      fs <- currentPathStatus
      when (isDirectory fs && depth <= maxDepth cfg )$ do
-        traverseDirectoryWith fileCount
         files <- liftIO $ listFiles path
         tell [(path, length $ filter (checkExtension cfg) files)]
+        traverseDirectoryWith fileCount
     
 

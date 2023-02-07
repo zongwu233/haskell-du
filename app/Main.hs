@@ -1,6 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE NamedFieldPuns #-}
 
 module Main where
 
@@ -8,10 +6,10 @@ import App
 import System.Posix.Types (FileOffset)
 import Data.Text.Lazy.Builder (Builder )
 import TextShow
-import Data.Text.IO as TIO
-import DirTree
-import FileCount
-import DiskUsage
+import Data.Text.IO as TIO ( putStr )
+import DirTree ( dirTree )
+import FileCount ( fileCount )
+import DiskUsage ( diskUsage )
 import Options.Applicative as Opt
 
 
@@ -19,6 +17,11 @@ buildEntries :: Builder -> (e -> Builder) -> [e] -> Builder
 buildEntries title entryBuilder entries =
     unlinesB $ title : map entryBuilder entries
     
+treeEntryBuilder :: (FilePath, Int) -> Builder
+treeEntryBuilder (fp,n) = fromString indent <> fromString fp
+    where 
+        indent = replicate (2*n) ' '
+      
 tabEntryBuilder :: TextShow s => (FilePath, s) -> Builder 
 tabEntryBuilder (fp, s) = showb s <> "\t" <> fromString fp
 

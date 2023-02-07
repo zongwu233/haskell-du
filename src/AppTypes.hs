@@ -23,8 +23,8 @@ data AppConfig = AppConfig {
 data AppEnv = AppEnv {
     cfg :: AppConfig,
     path :: FilePath,
-    depth :: Int
-    , fileStatus :: FilePath -> IO FileStatus
+    depth :: Int,
+    fileStatus :: FilePath -> IO FileStatus
     }
 
 initialEnv :: AppConfig -> AppEnv
