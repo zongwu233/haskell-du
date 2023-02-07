@@ -1,6 +1,5 @@
-# Revision history for du
+# du
 
-## 0.1.0.0 -- 2023-02-06
 
 a `du` linux command implemented with `Haskell`
 
